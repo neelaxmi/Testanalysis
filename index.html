@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEELAXMI THE UNION - Test Analysis Form</title>
+    <style>
+        /* Educational Theme CSS */
+        :root {
+            --primary-color: #1a365d; /* Academic Navy Blue */
+            --secondary-color: #2b6cb0;
+            --accent-color: #ecc94b;
+            --bg-color: #f4f6f9;
+            --text-color: #2d3748;
+            --border-color: #e2e8f0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        /* Branding and Headers */
+        h1 {
+            text-align: center;
+            color: var(--primary-color);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 5px;
+        }
+
+        h2 {
+            text-align: center;
+            color: var(--secondary-color);
+            margin-top: 0;
+            font-weight: 400;
+        }
+
+        /* Social / Bot Links Box */
+        .join-box {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            margin: 20px 0;
+            border: 3px solid var(--accent-color);
+        }
+
+        .join-box p {
+            margin-top: 0;
+            font-size: 1.1em;
+            font-weight: bold;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 5px 10px;
+            text-decoration: none;
+            color: var(--primary-color);
+            background-color: var(--accent-color);
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #d6b33a;
+        }
+
+        /* Caution Banner */
+        .caution-banner {
+            background-color: #fffaf0;
+            border-left: 6px solid #dd6b20;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+
+        .caution-banner strong {
+            color: #dd6b20;
+        }
+
+        /* Table Styling */
+        .table-responsive {
+            overflow-x: auto;
+            margin-top: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: center;
+        }
+
+        th, td {
+            border: 1px solid var(--border-color);
+            padding: 8px;
+            min-width: 80px;
+        }
+
+        th {
+            background-color: var(--secondary-color);
+            color: white;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            font-size: 0.9em;
+        }
+
+        /* Group Headers */
+        .group-header {
+            background-color: var(--primary-color) !important;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f8fafc;
+        }
+
+        tr:hover {
+            background-color: #e2e8f0;
+        }
+
+        input[type="checkbox"] {
+            transform: scale(1.5);
+            cursor: pointer;
+        }
+
+        /* Save Status Indicator */
+        .status-bar {
+            text-align: right;
+            margin-top: 10px;
+            font-weight: bold;
+            color: #38a169;
+        }
+
+        .controls {
+            margin-top: 20px;
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .clear-btn {
+            background-color: #e53e3e;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .clear-btn:hover { background-color: #c53030; }
+
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>NEELAXMI THE UNION</h1>
+    <h2>Student Test Analysis Portal</h2>
+
+    <div class="join-box">
+        <p>🎓 Elevate Your Learning Journey! 🎓</p>
+        <p>Directed by PRATEEK JAIN SIR </p>
+        <a href="https://telegram.me/neelaxmi_Official" class="btn" target="_blank">Join Our Channel</a>
+        <a href="https://telegram.me/saksen_main_bot" class="btn" target="_blank">Start Our Bot</a>
+        <a href="https://classupdates.netlify.app" class="btn" target="_blank">OUR OFFICIAL WEBSITE </a>
+    </div>
+
+    <div class="caution-banner">
+        <strong>⚠️ CAUTION & DATA SAVING INFO:</strong> 
+        Your data is saved automatically and instantly in the <b>Very Best Way</b> using your browser's Local Storage. 
+        It is safe and will remain here for months or up to 100 years. <b>DO NOT</b> clear your browser history/cache or use Incognito mode, otherwise your data will be lost.
+    </div>
+
+    <div class="status-bar" id="saveStatus">Data is synced and up to date ✓</div>
+
+    <div class="table-responsive">
+        <table id="analysisTable">
+            <thead>
+                <tr>
+                    <th rowspan="2">Q. No.</th>
+                    <th rowspan="2">Attempted?</th>
+                    <th rowspan="2">Correct?</th>
+                    <th colspan="6" class="group-header">If Wrong? (Reasons)</th>
+                    <th colspan="2" class="group-header">Why not attempted?</th>
+                </tr>
+                <tr>
+                    <th>Conceptual Errors</th>
+                    <th>Calculation Error</th>
+                    <th>Silly Mistakes</th>
+                    <th>Misinterpreted</th>
+                    <th>Confused Options</th>
+                    <th>Marked Wrong</th>
+                    <th>Insufficient Time</th>
+                    <th>Not Sure How to Solve</th>
+                </tr>
+            </thead>
+            <tbody id="tableBody">
+                </tbody>
+        </table>
+    </div>
+
+    <div class="controls">
+        <div>
+            <p><i>Data autosaves when you check a box.</i></p>
+        </div>
+        <button class="clear-btn" onclick="clearData()">Clear All Data</button>
+    </div>
+</div>
+
+<script>
+    const totalQuestions = 45;
+    const storageKey = "neelaxmi_test_data";
+    const tableBody = document.getElementById("tableBody");
+    const saveStatus = document.getElementById("saveStatus");
+
+    // The data structure to hold checkbox states
+    const columns = [
+        "attempted", "correct", "conceptual", "calc", 
+        "silly", "misinterpreted", "confused", "marked", 
+        "time", "notsure"
+    ];
+
+    // Function to generate the table dynamically
+    function generateTable() {
+        for (let i = 1; i <= totalQuestions; i++) {
+            let tr = document.createElement("tr");
+            
+            // Question Number column
+            let tdQ = document.createElement("td");
+            tdQ.innerHTML = `<b>${i}</b>`;
+            tr.appendChild(tdQ);
+
+            // Create checkboxes for each column
+            columns.forEach(col => {
+                let td = document.createElement("td");
+                let checkbox = document.createElement("input");
+                checkbox.type = "checkbox";
+                checkbox.dataset.q = i;
+                checkbox.dataset.col = col;
+                checkbox.addEventListener('change', autoSave);
+                td.appendChild(checkbox);
+                tr.appendChild(td);
+            });
+
+            tableBody.appendChild(tr);
+        }
+    }
+
+    // Function to save data to LocalStorage
+    function autoSave() {
+        saveStatus.textContent = "Saving...";
+        saveStatus.style.color = "#d69e2e"; // yellow
+
+        let data = {};
+        const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+        
+        checkboxes.forEach(cb => {
+            const q = cb.dataset.q;
+            const col = cb.dataset.col;
+            if (!data[q]) data[q] = {};
+            data[q][col] = cb.checked;
+        });
+
+        // Store as a JSON string
+        localStorage.setItem(storageKey, JSON.stringify(data));
+
+        setTimeout(() => {
+            saveStatus.textContent = "Data is synced and up to date ✓";
+            saveStatus.style.color = "#38a169"; // green
+        }, 500);
+    }
+
+    // Function to load data from LocalStorage
+    function loadData() {
+        const savedData = localStorage.getItem(storageKey);
+        if (savedData) {
+            const data = JSON.parse(savedData);
+            const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+            
+            checkboxes.forEach(cb => {
+                const q = cb.dataset.q;
+                const col = cb.dataset.col;
+                if (data[q] && data[q][col] !== undefined) {
+                    cb.checked = data[q][col];
+                }
+            });
+        }
+    }
+
+    // Function to wipe data
+    function clearData() {
+        if (confirm("Are you sure you want to clear ALL test data? This cannot be undone!")) {
+            localStorage.removeItem(storageKey);
+            const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+            checkboxes.forEach(cb => cb.checked = false);
+            alert("Data cleared successfully.");
+        }
+    }
+
+    // Initialize the app
+    document.addEventListener("DOMContentLoaded", () => {
+        generateTable();
+        loadData();
+    });
+</script>
+
+</body>
+</html>
